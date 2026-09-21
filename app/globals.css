@@ -1,0 +1,264 @@
+@import "../styles/deploya.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Switzer';
+  src: url('https://cdn.prod.website-files.com/69b13cad49372c03e40843d9/69b13ddb242e81dba7ab9e52_Switzer-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Switzer';
+  src: url('https://cdn.prod.website-files.com/69b13cad49372c03e40843d9/69b13ddb2bb359508bd17c23_Switzer-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Switzer';
+  src: url('https://cdn.prod.website-files.com/69b13cad49372c03e40843d9/69b13ddb0218451480ab5c57_Switzer-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Switzer';
+  src: url('https://cdn.prod.website-files.com/69b13cad49372c03e40843d9/69b13ddb96aa7f5525c41437_Switzer-Semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Switzer';
+  src: url('https://cdn.prod.website-files.com/69b13cad49372c03e40843d9/69b13ddbff547a8f587b2823_Switzer-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-base--white: #ffffff;
+  --color-base--black: #0A1E3F;
+  /* Zyoris Signature Deep Navy */
+
+  /* Zyoris Brand Color Palette */
+  --color-zyoris--navy: #0A1E3F;
+  --color-zyoris--blue: #0D47A1;
+  --color-zyoris--bright: #2979FF;
+  --color-zyoris--light: #5393FF;
+  --color-zyoris--ice: #F0F5FF;
+  --color-zyoris--bg: #F8F9FC;
+  --color-zyoris--border: rgba(13, 71, 161, 0.14);
+
+  --accent: #0D47A1;
+  /* Zyoris Royal Blue */
+  --secondary: #eef4ff;
+
+  --color-neutral--shade-50: #f8faff;
+  --color-neutral--shade-100: #f0f4fc;
+  --color-neutral--shade-200: #e4ecf7;
+  --color-neutral--shade-300: #d4e2f5;
+  --color-neutral--shade-400: #c2d4ee;
+  --color-neutral--shade-500: #9cb8e0;
+  --color-neutral--shade-600: #7398cc;
+  --color-neutral--shade-700: #4a74af;
+  --color-neutral--shade-800: #2a528e;
+  --color-neutral--shade-900: #13366c;
+
+  --fonts--body: 'Switzer', Arial, sans-serif;
+  --fonts--heading: 'Didact Gothic', sans-serif;
+  --fonts--badge: 'Anonymous Pro', sans-serif;
+  --font-size--h1: 3.5rem;
+  --line-height--h1: 120%;
+  --font-size--h2: 2.5rem;
+  --line-height--h2: 115%;
+  --font-size--h3: 2rem;
+  --line-height--h3: 120%;
+  --font-size--h4: 1.75rem;
+  --line-height--h4: 120%;
+  --font-size--h5: 1.5rem;
+  --line-height--h5: 130%;
+  --font-size--h6: 1.125rem;
+  --line-height--h6: 130%;
+  --font-size--body-small: 1.1rem;
+  --line-height--body-small: 150%;
+  --font-size--body-medium: 1.125rem;
+  --line-height--body-medium: 150%;
+  --font-size--body-large: 1.25rem;
+  --line-height--body-large: 150%;
+  --font-size--body-tiny: 1rem;
+  --line-height--body-tiny: 150%;
+  --content-width--container: 1400px;
+  --content-width--x-large: 1138px;
+  --content-width--large: 896px;
+  --content-width--medium: 654px;
+  --content-width--small: 480px;
+  --section-padding--large: 144px;
+  --section-padding--medium: 96px;
+  --section-padding--small: 48px;
+  --radius--default: 0px;
+  --radius--button: 0px;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  background-color: var(--color-base--white);
+  color: var(--color-base--black);
+  font-family: var(--fonts--body);
+  overflow-x: hidden;
+}
+
+/* Zyoris Blue & White Theme Overrides */
+.button {
+  background-color: #5d97e9 !important;
+  color: #ffffff !important;
+  border-radius: 40px !important;
+}
+
+.button:hover {
+  background-color: var(--color-zyoris--bright) !important;
+}
+
+.button.is-secondary {
+  border: 1px solid var(--accent) !important;
+  background-color: #ffffff !important;
+  color: var(--accent) !important;
+}
+
+.button.is-secondary:hover {
+  background-color: var(--color-zyoris--ice) !important;
+}
+
+.text-style-badge.is-badge {
+  border: 1px solid rgba(13, 71, 161, 0.2) !important;
+  background-color: #f0f5ff !important;
+  color: var(--color-zyoris--blue) !important;
+}
+
+.logos_marquee-item {
+  background-color: #f0f5ff !important;
+  border: 1px solid rgba(13, 71, 161, 0.2) !important;
+  font-family: var(--fonts--heading, 'Didact Gothic', sans-serif) !important;
+}
+
+/* Features Section (Image 4 & 5): white initially, pastel blue when hovered or viewed */
+.section_home1_features {
+  background-color: #ffffff !important;
+  color: var(--color-base--black) !important;
+  transition: background-color 0.4s ease;
+}
+
+.section_home1_features:hover {
+  background-color: #e8f1fc !important;
+}
+
+.section_home1_features .home1_features_text,
+.section_home1_features .home1_features_link {
+  color: var(--color-base--black) !important;
+}
+
+.section_home1_features .home1_features_link-dot {
+  background-color: var(--color-zyoris--blue) !important;
+}
+
+.section_home1_features .home1_features_link-line {
+  background-color: rgba(13, 71, 161, 0.2) !important;
+}
+
+.nav-link:hover {
+  color: var(--color-zyoris--bright) !important;
+}
+
+.nav-brand {
+  color: var(--color-zyoris--navy) !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-base--black);
+}
+
+a:hover {
+  color: var(--color-zyoris--bright);
+}
+
+/* SplitText word mask */
+.split-mask-wrap {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  line-height: inherit;
+}
+
+.split-mask-word {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* Button hover mask */
+.button-mask {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Card image scale container */
+[data-animate="card-hover"] [data-card-image],
+[animate="card-hover"] [card-image] {
+  overflow: hidden;
+  transition: none;
+  /* GSAP strictly controls transform */
+}
+
+[data-animate="card-hover"] [data-card-image] img,
+[animate="card-hover"] [card-image] img,
+[data-card-image] img,
+[card-image] img {
+  will-change: transform;
+}
+
+/* Continuous Marquee wrapper utility */
+.marquee-container {
+  overflow: hidden;
+  display: flex;
+  user-select: none;
+}
+
+.marquee-track {
+  display: flex;
+  flex-shrink: 0;
+  will-change: transform;
+}
+
+/* Ensure backdrop / modal behaviors */
+.w-inline-block {
+  max-width: 100%;
+  display: inline-block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
