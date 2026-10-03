@@ -1,12 +1,100 @@
 import React from "react";
 import { Button } from "../buttons/Button";
 
+interface PricingPlan {
+  id: string;
+  name: string;
+  price: string;
+  period: string;
+  description: string;
+  popular?: boolean;
+  image: string;
+  features: string[];
+  buttonText: string;
+  buttonHref: string;
+}
+
+const pricingPlans: PricingPlan[] = [
+  {
+    id: "starter",
+    name: "Starter",
+    price: "₹4,500",
+    period: "/user/month",
+    description: "For startups & small teams · Up to 10 users",
+    image: "/plan1.png",
+    features: [
+      "Leads, Contacts & Deals",
+      "Basic Dashboard",
+      "AI Insights",
+      "Role-Based Views",
+      "Email Support",
+    ],
+    buttonText: "Get Started →",
+    buttonHref: "/contact",
+  },
+  {
+    id: "growth",
+    name: "Growth",
+    popular: true,
+    price: "₹8,500",
+    period: "/user/month",
+    description: "For growing SMBs · 10–50 users",
+    image: "/plan2.jpg",
+    features: [
+      "Everything in Starter",
+      "Advanced AI & Reports",
+      "HR Module",
+      "Smart Notifications",
+      "Revenue Forecasting",
+      "Priority Support",
+    ],
+    buttonText: "Get Started →",
+    buttonHref: "/contact",
+  },
+  {
+    id: "business",
+    name: "Business",
+    price: "₹12,000",
+    period: "/user/month",
+    description: "For mid-size companies · 50–200 users",
+    image: "/plan_business.jpg",
+    features: [
+      "Everything in Growth",
+      "Finance Module",
+      "Call Centre",
+      "Priority Support",
+      "Legacy Integration",
+      "Audit Log & Compliance",
+    ],
+    buttonText: "Get Started →",
+    buttonHref: "/contact",
+  },
+  {
+    id: "enterprise",
+    name: "Enterprise",
+    price: "Custom",
+    period: "tailored for you",
+    description: "For large organisations · Unlimited users",
+    image: "/plan3.png",
+    features: [
+      "Full Platform Access",
+      "Dedicated Account Manager",
+      "Custom Setup & SLA",
+      "On-Premise Option",
+      "Direct Founder Access",
+    ],
+    buttonText: "Contact Us →",
+    buttonHref: "/contact",
+  },
+];
+
 export const PricingSection: React.FC = () => {
   return (
     <section
+      id="pricing"  
       animate="scroll-section-color"
       data-animate="scroll-section-color"
-      className="section_home1_pricing"
+      className="section_home1_features"
     >
       <div className="padding-global padding-section-medium">
         <div className="container-default">
@@ -47,93 +135,59 @@ export const PricingSection: React.FC = () => {
               role="list"
               className="pricing_list w-dyn-items"
             >
-              {/* Pro Tier */}
-              <div role="listitem" className="w-dyn-item">
-                <div className="pricing_card">
-                  <div className="pricing_card-content">
-                    <div className="pricing_card-header">
-                      <img
-                        src="https://cdn.prod.website-files.com/69b13cad49372c03e40843dd/69b151a4499d85afec243a3b_plan1.png"
-                        loading="lazy"
-                        alt=""
-                        className="icon-1x1-xxlarge"
-                      />
-                      <div className="pricing_card-header-text">
-                        <h3 className="heading-style-h4">Pro</h3>
-                        <div className="text-size-small">
-                          For startups and small teams ready to get organized and sell smarter
+              {pricingPlans.map((plan) => (
+                <div key={plan.id} role="listitem" className="w-dyn-item">
+                  <div className={`pricing_card ${plan.popular ? "is-highlighted-plan" : ""}`}>
+                    <div className="pricing_card-content">
+                      <div className="pricing_card-header">
+                        <img
+                          src={plan.image}
+                          loading="lazy"
+                          alt={plan.name}
+                          className="icon-1x1-xxlarge pricing_card-icon"
+                        />
+                        <div className="pricing_card-header-text">
+                          {plan.popular && (
+                            <div className="text-style-badge is-badge pricing_badge_popular">
+                              <div>MOST POPULAR</div>
+                            </div>
+                          )}
+                          <h3 className="heading-style-h4">{plan.name}</h3>
+                          <div className="text-size-small">
+                            {plan.description}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="pricing-price">
-                      <div className="heading-style-h1">$50</div>
-                      <div className="text-size-small">per month</div>
-                    </div>
-                    <div className="w-richtext">
-                      <ul role="list">
-                        <li>Customizable deal pipelines</li>
-                        <li>Email tracking &amp; activity timeline</li>
-                        <li>Task reminders and follow-ups</li>
-                        <li>Basic reports and dashboards</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <Button href="/plans/pro" variant="secondary">
-                    Get in Touch
-                  </Button>
-                </div>
-              </div>
-
-              {/* Enterprise Tier */}
-              <div role="listitem" className="w-dyn-item">
-                <div className="pricing_card">
-                  <div className="pricing_card-content">
-                    <div className="pricing_card-header">
-                      <img
-                        src="https://cdn.prod.website-files.com/69b13cad49372c03e40843dd/69b151df973277b4a0a84353_plan3.png"
-                        loading="lazy"
-                        alt=""
-                        className="icon-1x1-xxlarge"
-                      />
-                      <div className="pricing_card-header-text">
-                        <h3 className="heading-style-h4">Enterprise</h3>
-                        <div className="text-size-small">
-                          End-to-end solution for large teams ready to unify operations and accelerate growth
-                        </div>
+                      <div className="pricing-price">
+                        <div className="heading-style-h1 pricing-val">{plan.price}</div>
+                        <div className="text-size-small pricing-period">{plan.period}</div>
+                      </div>
+                      <div className="w-richtext">
+                        <ul role="list">
+                          {plan.features.map((feature, idx) => (
+                            <li key={idx}>{feature}</li>
+                          ))}
+                        </ul>
                       </div>
                     </div>
-                    <div className="pricing-price">
-                      <div className="heading-style-h1">$150</div>
-                      <div className="text-size-small">per month</div>
-                    </div>
-                    <div className="w-richtext">
-                      <ul role="list">
-                        <li>Everything in Premium</li>
-                        <li>SSO &amp; SOC 2 compliance</li>
-                        <li>Dedicated account manager</li>
-                        <li>Custom roles &amp; security policies</li>
-                      </ul>
-                    </div>
+                    <Button
+                      href={plan.buttonHref}
+                      variant={plan.popular ? "primary" : "secondary"}
+                    >
+                      {plan.buttonText}
+                    </Button>
                   </div>
-                  <Button href="/plans/enterprise" variant="secondary">
-                    Get in Touch
-                  </Button>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
 
+          <p className="pricing_footnote">
+            * All prices exclusive of GST · HR and Finance modules coming soon as part of phased expansion
+          </p>
           <div className="spacer-medium"></div>
-
           {/* Explore All Plans Button */}
           <div className="flex-center">
-            <Button
-              href="/pricing"
-              variant="alternative"
-              className="fade-up-2"
-            >
-              Explore All Plans
-            </Button>
           </div>
         </div>
       </div>

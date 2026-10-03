@@ -1,172 +1,84 @@
 import React from "react";
 import Link from "next/link";
-import { Button } from "../buttons/Button";
+import { Linkedin, Instagram, Mail } from "lucide-react";
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="footer">
-        <div className="container-default">
-          <div className="footer-box">
-            {/* Footer Banners */}
-            <div className="footer_banners">
-              <div className="footer_buy">
-                <div className="heading-style-h4 text-color-alternate">
-                  India&apos;s first Intelligent Business Operating System. One platform for Sales &amp; CRM, HR, Finance, and AI Insights.
-                </div>
-                <Button
-                  href="/#contact"
-                  variant="alternative"
-                >
-                  Get Early Access
-                </Button>
+    <footer className="footer bg-[#F8FAFC] border-t border-[#C2D4EE]/70">
+      <div className="container-default px-4 sm:px-6 lg:px-8">
+        <div className="py-6 md:py-8 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4 lg:gap-8">
+          {/* Brand & Confidentiality */}
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 lg:gap-8 text-center sm:text-left">
+            <Link href="/" className="nav-brand w-nav-brand flex items-center gap-2">
+              <div className="flex items-center gap-2.5 font-bold text-xl tracking-tight text-[#0A1E3F]">
+                <img
+                  src="/logo.jpeg"
+                  alt="Zyoris logo"
+                  width={32}
+                  height={32}
+                  className="w-8 h-8 rounded-lg object-cover flex-shrink-0"
+                />
+                <span className="text-[#0A1E3F] font-semibold lowercase tracking-wide text-xl" style={{ letterSpacing: "0.04em" }}>zyoris</span>
               </div>
-              <img
-                src="https://cdn.prod.website-files.com/69b13cad49372c03e40843d9/69b149cd30d806fb9080784b_Footer%20Image.avif"
-                loading="lazy"
-                id="w-node-bc5ae0a8-201c-b37e-a7a3-645cbf5c5544-17f08d4d"
-                sizes="100vw"
-                alt="Zyoris – India's AI Business OS"
-                srcSet="https://cdn.prod.website-files.com/69b13cad49372c03e40843d9/69b149cd30d806fb9080784b_Footer%20Image-p-500.avif 500w, https://cdn.prod.website-files.com/69b13cad49372c03e40843d9/69b149cd30d806fb9080784b_Footer%20Image-p-800.avif 800w, https://cdn.prod.website-files.com/69b13cad49372c03e40843d9/69b149cd30d806fb9080784b_Footer%20Image.avif 1294w"
-                className="footer_image"
-              />
-            </div>
-
-            <div className="spacer-large"></div>
-
-            {/* Footer Nav Box */}
-            <div className="footer_nav_box">
-              <div className="footer_info-column">
-                <Link href="/" className="nav-brand w-nav-brand flex items-center gap-2">
-                  <div className="flex items-center gap-2.5 font-bold text-xl tracking-tight text-[#0A1E3F]">
-                    <img
-                      src="/logo.jpeg"
-                      alt="Zyoris logo"
-                      width={32}
-                      height={32}
-                      className="w-8 h-8 rounded-lg object-cover flex-shrink-0"
-                    />
-                    <span className="text-[#0A1E3F] font-semibold lowercase tracking-wide text-xl" style={{ letterSpacing: "0.04em" }}>zyoris</span>
-                  </div>
-                </Link>
-                <div className="text-size-tiny text-[#0A1E3F]/70">
-                  © 2026 Zyoris. Confidential. India&apos;s Intelligent Business OS.
-                </div>
-                <div className="text-size-tiny text-[#0A1E3F]/60">
-                  Founded by <a href="https://www.linkedin.com/in/puneetmunjal7" target="_blank" rel="noopener noreferrer" className="underline text-[#0D47A1]">Puneet Kumar</a> (Founder &amp; CEO).
-                </div>
-                <div className="footer_socials mt-3">
-                  <a href="https://www.linkedin.com/in/puneetmunjal7" target="_blank" rel="noopener noreferrer" className="social-link w-inline-block" aria-label="LinkedIn">
-                    <img
-                      loading="lazy"
-                      src="https://cdn.prod.website-files.com/69b13cad49372c03e40843d9/69b13cad49372c03e40843fa_linkedin.svg"
-                      alt="linkedin"
-                      className="social-link-image"
-                    />
-                  </a>
-                  <a href="https://github.com/puneetmunjal7" target="_blank" rel="noopener noreferrer" className="social-link w-inline-block" aria-label="GitHub">
-                    <img
-                      loading="lazy"
-                      src="https://cdn.prod.website-files.com/69b13cad49372c03e40843d9/69b13cad49372c03e40843fb_twitter.svg"
-                      alt="github"
-                      className="social-link-image"
-                    />
-                  </a>
-                </div>
-              </div>
-
-              {/* Navigation Columns */}
-              <nav className="footer_nav">
-                <div className="footer_nav-column">
-                  <div className="text-style-badge">Platform</div>
-                  <div className="footer_nav-list">
-                    <Link href="/#features" className="footer_nav-link">
-                      Sales &amp; CRM
-                    </Link>
-                    <Link href="/#features" className="footer_nav-link">
-                      HR &amp; People
-                    </Link>
-                    <Link href="/#features" className="footer_nav-link">
-                      Finance &amp; Invoicing
-                    </Link>
-                    <Link href="/#features" className="footer_nav-link">
-                      AI Insights
-                    </Link>
-                    <Link href="/#features" className="footer_nav-link">
-                      Call Centre
-                    </Link>
-                  </div>
-                </div>
-
-                <div className="footer_nav-column">
-                  <div className="text-style-badge">Product</div>
-                  <div className="footer_nav-list">
-                    <Link href="/#features" className="footer_nav-link">
-                      What&apos;s inside
-                    </Link>
-                    <Link href="/#how" className="footer_nav-link">
-                      How it works
-                    </Link>
-                    <Link href="/#pricing" className="footer_nav-link">
-                      Pricing Plans
-                    </Link>
-                    <Link href="/#comparison" className="footer_nav-link">
-                      Feature Comparison
-                    </Link>
-                    <Link href="/#why" className="footer_nav-link">
-                      Why Zyoris
-                    </Link>
-                    <Link href="/#faq" className="footer_nav-link">
-                      FAQ
-                    </Link>
-                  </div>
-                </div>
-
-                <div className="footer_nav-column">
-                  <div className="text-style-badge">Company</div>
-                  <div className="footer_nav-list">
-                    <Link href="https://zyoris.com/" target="_blank" className="footer_nav-link">
-                      About Zyoris
-                    </Link>
-                    <a href="https://www.linkedin.com/in/puneetmunjal7" target="_blank" rel="noopener noreferrer" className="footer_nav-link">
-                      Puneet Kumar (Founder &amp; CEO)
-                    </a>
-                    <Link href="/#contact" className="footer_nav-link">
-                      Get in Touch
-                    </Link>
-                    <Link href="/#contact" className="footer_nav-link">
-                      Request Early Access
-                    </Link>
-                  </div>
-                </div>
-
-                <div className="footer_nav-column">
-                  <div className="text-style-badge">Security</div>
-                  <div className="footer_nav-list">
-                    <span className="footer_nav-link text-white/60">
-                      Multi-Tenant Isolation
-                    </span>
-                    <span className="footer_nav-link text-white/60">
-                      JWT Authentication
-                    </span>
-                    <span className="footer_nav-link text-white/60">
-                      Full Audit Logging
-                    </span>
-                    <span className="footer_nav-link text-white/60">
-                      India GST-Ready
-                    </span>
-                  </div>
-                </div>
-              </nav>
-            </div>
-
-            <div className="spacer-large"></div>
-            <div className="divider"></div>
-            <div className="spacer-xsmall"></div>
-            <div className="text-size-tiny">
-              This is a legal disclaimer for website footers. It should begin with a statement confirming the company’s official registration, including a placeholder for the location and a sample registration number—for instance, “Incorporated in [Location], USA (Reg. No. YY-123456).” The disclaimer should also include a note about the company’s regulatory authorization, referencing a relevant oversight body and legislation. You may use placeholders like “Licensed by the [State Regulatory Authority] under the [Relevant State Act] (License No. YY-123456).”
+            </Link>
+            <div className="text-size-tiny text-[#0A1E3F]/70">
+              © 2026 Zyoris. Confidential. India&apos;s Intelligent Business OS.
             </div>
           </div>
+
+          {/* Social Media & Contact Icons */}
+          <div className="flex items-center gap-3">
+            <a
+              href="https://www.linkedin.com/in/puneetmunjal7"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="w-9 h-9 md:w-10 md:h-10 rounded-full flex items-center justify-center bg-[#E8F1FC] border border-[#D4E2F5] text-[#4A74AF] hover:text-[#0D47A1] hover:bg-[#D9E8FA] hover:border-[#2979FF]/40 transition-all duration-200 shadow-sm"
+            >
+              <Linkedin className="w-4 h-4 md:w-[18px] md:h-[18px]" />
+            </a>
+            <a
+              href="https://instagram.com/zyoris"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="w-9 h-9 md:w-10 md:h-10 rounded-full flex items-center justify-center bg-[#E8F1FC] border border-[#D4E2F5] text-[#4A74AF] hover:text-[#0D47A1] hover:bg-[#D9E8FA] hover:border-[#2979FF]/40 transition-all duration-200 shadow-sm"
+            >
+              <Instagram className="w-4 h-4 md:w-[18px] md:h-[18px]" />
+            </a>
+            <a
+              href="mailto:contact@zyoris.com"
+              aria-label="Email"
+              className="w-9 h-9 md:w-10 md:h-10 rounded-full flex items-center justify-center bg-[#E8F1FC] border border-[#D4E2F5] text-[#4A74AF] hover:text-[#0D47A1] hover:bg-[#D9E8FA] hover:border-[#2979FF]/40 transition-all duration-200 shadow-sm"
+            >
+              <Mail className="w-4 h-4 md:w-[18px] md:h-[18px]" />
+            </a>
+          </div>
+
+          {/* Navigation Links */}
+          <nav className="flex items-center gap-6 md:gap-8 text-sm md:text-base font-normal text-[#0A1E3F]/80">
+            <Link
+              href="/about"
+              className="hover:text-[#2979FF] transition-colors duration-200"
+            >
+              About Us
+            </Link>
+            <Link
+              href="/#careers"
+              className="hover:text-[#2979FF] transition-colors duration-200"
+            >
+              Careers
+            </Link>
+            <Link
+              href="/#privacy"
+              className="hover:text-[#2979FF] transition-colors duration-200"
+            >
+              Privacy
+            </Link>
+          </nav>
         </div>
+      </div>
     </footer>
   );
 };
+

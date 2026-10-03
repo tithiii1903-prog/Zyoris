@@ -185,55 +185,7 @@ export const FAQSection: React.FC = () => {
                 className="w-tabs"
               >
                 {/* Tab Menu */}
-                <div className="tabs-menu w-tab-menu">
-                  <button
-                    type="button"
-                    className={`tabs-link w-inline-block w-tab-link ${
-                      activeTab === "product" ? "w--current" : ""
-                    }`}
-                    onClick={() => setActiveTab("product")}
-                  >
-                    <img
-                      loading="lazy"
-                      src="https://cdn.prod.website-files.com/69b13cad49372c03e40843d9/69df71d6f672c244fbf6e79c_monitor.svg"
-                      alt=""
-                      className="icon-height-small-5"
-                    />
-                    <div className="text-size-small">Product</div>
-                  </button>
-
-                  <button
-                    type="button"
-                    className={`tabs-link w-inline-block w-tab-link ${
-                      activeTab === "support" ? "w--current" : ""
-                    }`}
-                    onClick={() => setActiveTab("support")}
-                  >
-                    <img
-                      loading="lazy"
-                      src="https://cdn.prod.website-files.com/69b13cad49372c03e40843d9/69df71d61fc9b6cfe5d36f1b_messages-bubble.svg"
-                      alt=""
-                      className="icon-height-small-5"
-                    />
-                    <div className="text-size-small">Support</div>
-                  </button>
-
-                  <button
-                    type="button"
-                    className={`tabs-link w-inline-block w-tab-link ${
-                      activeTab === "payments" ? "w--current" : ""
-                    }`}
-                    onClick={() => setActiveTab("payments")}
-                  >
-                    <img
-                      loading="lazy"
-                      src="https://cdn.prod.website-files.com/69b13cad49372c03e40843d9/69df71d62aaee89a45ffe78c_Bank-Card.svg"
-                      alt=""
-                      className="icon-height-small-5"
-                    />
-                    <div className="text-size-small">Payments</div>
-                  </button>
-                </div>
+                
 
                 {/* Tab Panes */}
                 <div className="w-tab-content">

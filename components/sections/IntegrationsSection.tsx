@@ -116,11 +116,11 @@ export const IntegrationsSection: React.FC = () => {
           <div
             animate="fade-up-3"
             data-animate="fade-up-3"
-            className="w-full overflow-x-auto rounded-2xl border border-white/10 bg-white/5 p-4 my-8"
+            className="w-full overflow-x-auto rounded-2xl border border-black/10 p-4 my-8 "
           >
-            <table className="w-full text-left border-collapse min-w-[640px]">
+            <table className="w-full text-left min-w-[640px] font-didactGothic">
               <thead>
-                <tr className="border-b border-white/10 text-xs uppercase tracking-wider text-white/60">
+                <tr className="border-b border-white/10 text-xs uppercase tracking-wider text-black bg-blue-500/10">
                   <th className="py-4 px-4 font-semibold">Feature</th>
                   <th className="py-4 px-4">Salesforce</th>
                   <th className="py-4 px-4">Zoho One</th>
@@ -137,11 +137,11 @@ export const IntegrationsSection: React.FC = () => {
                       row.isPrice ? "font-bold text-white bg-white/5" : "text-white/80"
                     }`}
                   >
-                    <td className="py-3.5 px-4 font-medium text-white">{row.feature}</td>
-                    <td className="py-3.5 px-4 text-white/60">{row.salesforce}</td>
-                    <td className="py-3.5 px-4 text-white/60">{row.zoho}</td>
-                    <td className="py-3.5 px-4 text-white/60">{row.odoo}</td>
-                    <td className="py-3.5 px-4 text-white/60">{row.freshsales}</td>
+                    <td className="py-3.5 px-4 font-medium text-black">{row.feature}</td>
+                    <td className="py-3.5 px-4 text-black/60">{row.salesforce}</td>
+                    <td className="py-3.5 px-4 text-black/60">{row.zoho}</td>
+                    <td className="py-3.5 px-4 text-black/60">{row.odoo}</td>
+                    <td className="py-3.5 px-4 text-black/60">{row.freshsales}</td>
                     <td className="py-3.5 px-4 font-semibold text-blue-400 bg-blue-500/10">
                       {row.zyoris}
                     </td>
@@ -151,7 +151,7 @@ export const IntegrationsSection: React.FC = () => {
             </table>
           </div>
 
-          <div className="text-center text-xs text-white/40 mt-4">
+          <div className="text-center text-xs text-black/40 mt-4">
             ~ Competitor prices approximate as of May 2026 · Zyoris prices excl. GST
           </div>
         </div>

@@ -1,7 +1,63 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Button } from "../buttons/Button";
 
 export const HeroSection: React.FC = () => {
+  const pinSectionRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    const pinSection = pinSectionRef.current;
+    const image = imageRef.current;
+    if (!pinSection || !image) return;
+
+    const clamp = (value: number, min: number, max: number) =>
+      Math.max(min, Math.min(max, value));
+
+    const ease = (t: number) => t * t * (3 - 2 * t); // smoothstep
+
+    const update = () => {
+      const rect = pinSection.getBoundingClientRect();
+      const total = rect.height - window.innerHeight;
+      const progress = total > 0 ? clamp(-rect.top / total, 0, 1) : 0;
+      const eased = ease(progress);
+
+      const width = window.innerWidth;
+      const isMobile = width < 768;
+      const isTablet = width >= 768 && width < 1024;
+
+      const minScale = isMobile ? 0.78 : isTablet ? 0.68 : 0.6;
+      const maxScale = isMobile ? 1.03 : isTablet ? 1.12 : 1.18;
+      const minRadius = isMobile ? 14 : 24;
+      const maxRadius = 0;
+
+      const scale = minScale + (maxScale - minScale) * eased;
+      const radius = minRadius + (maxRadius - minRadius) * eased;
+
+      image.style.transform = `scale(${scale})`;
+      image.style.borderRadius = `${radius}px`;
+    };
+
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          update();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", update);
+    };
+  }, []);
+
   const aiHeadings = [
     "AI PROCESSING",
     "LEADS ANALYZED: 2,847",
@@ -77,7 +133,60 @@ export const HeroSection: React.FC = () => {
                 See what&apos;s inside
               </Button>
             </div>
-            
+            <br />
+            <br />
+            <br />
+
+            {/* ===== SCROLL ZOOM IMAGE BLOCK ===== */}
+            <section
+              ref={pinSectionRef}
+              style={{
+                position: "relative",
+                height: "250vh",
+                width: "100vw",
+                maxWidth: "100vw",
+                left: "50%",
+                right: "50%",
+                marginLeft: "-50vw",
+                marginRight: "-50vw",
+              }}
+            >
+              <div
+                style={{
+                  position: "sticky",
+                  top: 0,
+                  height: "100vh",
+                  width: "calc(100vw - 80px)",
+                  marginLeft: "40px",
+                  marginRight: "40px",
+                  background: "linear-gradient(to right, #a3b7ccff, #e8f1fc)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  overflow: "hidden",
+                  boxSizing: "border-box",
+                }}
+              >
+                <img
+                  ref={imageRef}
+                  src="/Dashboard.png"
+                  alt="Dashboard preview"
+                  style={{
+                    maxWidth: "min(90vw, 1300px)",
+                    maxHeight: "82vh",
+                    width: "auto",
+                    height: "auto",
+                    objectFit: "contain",
+                    borderRadius: "10px",
+                    boxShadow: "0 25px 80px rgba(0, 0, 0, 0.3)",
+                    transform: "scale(0.6)",
+                    transformOrigin: "center center",
+                    willChange: "transform, border-radius",
+                  }}
+                />
+              </div>
+            </section>
+            {/* ===== END SCROLL ZOOM IMAGE BLOCK ===== */}
 
             {/* Trust Tagline */}
             <div className="mt-8 text-[11px] sm:text-xs font-semibold tracking-wider text-[#4A85F6] uppercase">

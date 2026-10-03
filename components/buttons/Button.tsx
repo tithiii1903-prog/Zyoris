@@ -7,6 +7,7 @@ interface ButtonProps {
   variant?: "primary" | "alternative" | "secondary" | "small" | "nav";
   className?: string;
   target?: string;
+  type?: "button" | "submit" | "reset";
   onClick?: () => void;
   icon?: React.ReactNode;
 }
@@ -17,6 +18,7 @@ export const Button: React.FC<ButtonProps> = ({
   variant = "primary",
   className = "",
   target,
+  type = "button",
   onClick,
   icon,
 }) => {
@@ -80,7 +82,7 @@ export const Button: React.FC<ButtonProps> = ({
     <button
       button=""
       data-button=""
-      type="button"
+      type={type}
       className={combinedClass}
       onClick={onClick}
     >

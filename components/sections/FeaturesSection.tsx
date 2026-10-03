@@ -8,45 +8,115 @@ import {
   ShieldCheck,
   Building2,
   Link2,
+  CheckCircle2,
+  ArrowUpRight,
 } from "lucide-react";
+
+import { Button } from "../buttons/Button";
 
 export const FeaturesSection: React.FC = () => {
   const featureItems = [
     {
       id: "feature-lead-management",
+      num: "01",
+      category: "GROW REVENUE",
       title: "Lead Management",
+      badgeTag: "AI",
+      badgeSub: "Lead scoring & pipeline automation",
       desc: "Track every lead with full lifecycle history. AI scores each deal so your team always knows where to focus first.",
+      features: [
+        "Lead Capture & Assignment",
+        "Pipeline Kanban & Stages",
+        "Automated Follow-up Reminders",
+        "Call & Email Interaction Logs",
+      ],
       icon: Clock,
+      buttonText: "Explore Lead Management",
     },
     {
       id: "feature-dashboards",
+      num: "02",
+      category: "EMPOWER YOUR TEAM",
       title: "Role-Based Dashboards",
+      badgeTag: "LIVE",
+      badgeSub: "Role-specific real-time views",
       desc: "CEO, CFO, Sales Head - everyone gets their own live view. No more chasing people for updates or digging through spreadsheets.",
+      features: [
+        "Executive & Founder Overviews",
+        "Sales Pipeline Analytics",
+        "HR & Payroll Status Center",
+        "Custom Widget Layouts",
+      ],
       icon: LayoutDashboard,
+      buttonText: "Explore Dashboards",
     },
     {
       id: "feature-ai-recommends",
+      num: "03",
+      category: "SEE WHAT MATTERS",
       title: "AI That Recommends",
+      badgeTag: "AI",
+      badgeSub: "Proactive deal recommendations",
       desc: '"Call this deal now." "This lead is going cold." Zyoris does not just show data. It tells you what action to take, right now.',
+      features: [
+        "Deal Velocity Warnings",
+        "Next-Best-Action Prompts",
+        "AI Meeting & Call Summaries",
+        "Dynamic Win Probability",
+      ],
       icon: Sparkles,
+      buttonText: "Explore AI Intelligence",
     },
     {
       id: "feature-security",
+      num: "04",
+      category: "STAY SECURE",
       title: "Enterprise Security",
+      badgeTag: "SECURE",
+      badgeSub: "Zero-trust compliant security",
       desc: "Complete data isolation, JWT auth, full audit trail, and role-based permissions. Production-grade security from day one.",
+      features: [
+        "Role-Based Access Control",
+        "End-to-End JWT Auth & SSL",
+        "Immutable Audit Trails",
+        "SOC-2 & GDPR Readiness",
+      ],
       icon: ShieldCheck,
+      buttonText: "Explore Enterprise Security",
     },
     {
       id: "feature-multi-tenant",
+      num: "05",
+      category: "DATA ISOLATION",
       title: "Multi-Tenant Architecture",
+      badgeTag: "DATA",
+      badgeSub: "100% database boundary",
       desc: "Every company's data is completely isolated. Your data stays yours, private, secure, and always in your control.",
+      features: [
+        "Dedicated Database Schemas",
+        "Zero Cross-Tenant Leakage",
+        "Automated Data Backups",
+        "India-Compliant Cloud Hosting",
+      ],
       icon: Building2,
+      buttonText: "Explore Multi-Tenant",
     },
     {
       id: "feature-one-login",
+      num: "06",
+      category: "ONE PLATFORM",
       title: "One Login, Everything",
+      badgeTag: "SYNCED",
+      badgeSub: "Single source of truth",
       desc: "CRM, HR, Finance - all in one place, one account. No tool-switching, no copy-pasting data between systems.",
+      features: [
+        "Unified Single Sign-On",
+        "Cross-Module Workflows",
+        "Integrated Team Directory",
+        "Zero External API Costs",
+      ],
       icon: Link2,
+      buttonText: "Explore Unified System",
     },
   ];
 
@@ -180,8 +250,8 @@ export const FeaturesSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Features Cards List: 6 small cards, no huge images */}
-            <div className="home1_features_list flex flex-col gap-6">
+            {/* Right Features Cards List: 6 module cards matching Image 1 UI */}
+            <div className="home1_features_list flex flex-col gap-8">
               {featureItems.map((item) => {
                 const IconComponent = item.icon;
                 const isActive = activeId === item.id;
@@ -190,29 +260,73 @@ export const FeaturesSection: React.FC = () => {
                   <div
                     key={item.id}
                     id={item.id}
-                    className={`p-6 sm:p-8 rounded-2xl bg-white/95 border transition-all duration-300 shadow-sm ${
+                    className={`w-full rounded-3xl bg-white border p-6 sm:p-8 transition-all duration-300 shadow-sm flex flex-col justify-between ${
                       isActive
-                        ? "border-[#2979FF]/50 ring-2 ring-[#2979FF]/15 shadow-md -translate-y-0.5"
+                        ? "border-[#2979FF] ring-2 ring-[#2979FF]/15 shadow-md -translate-y-0.5"
                         : "border-[#D5E3F7]/80 hover:border-blue-300 hover:shadow-md"
                     }`}
                   >
-                    {/* Icon Badge */}
-                    <div className="w-11 h-11 rounded-xl bg-[#EEF4FE] border border-[#D0E2FB] text-[#0D47A1] flex items-center justify-center mb-4 transition-transform group-hover:scale-105">
-                      <IconComponent className="w-5 h-5 stroke-[2.2]" />
+                    {/* Top Row: Icon + Category + Title & AI Badge */}
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex items-center gap-3.5">
+                        <div className="w-12 h-12 rounded-2xl bg-[#EEF4FE] border border-[#D0E2FB] text-[#0D47A1] flex items-center justify-center shrink-0">
+                          <IconComponent className="w-6 h-6 stroke-[2]" />
+                        </div>
+                        <div>
+                          <div className="text-[11px] font-bold uppercase tracking-wider text-[#1E70FF]">
+                            {item.category}
+                          </div>
+                          <h3
+                            className="text-xl sm:text-2xl font-bold text-[#0A1E3F] tracking-tight"
+                            style={{ fontFamily: "var(--fonts--heading, 'Didact Gothic', sans-serif)" }}
+                          >
+                            {item.title}
+                          </h3>
+                        </div>
+                      </div>
+
+                      {/* Right Tag */}
+                      <div className="text-right shrink-0">
+                        <div className="text-base sm:text-lg font-black text-[#1E70FF] tracking-tight">
+                          {item.badgeTag}
+                        </div>
+                        <div className="text-[11px] text-slate-500 font-mono hidden sm:block">
+                          {item.badgeSub}
+                        </div>
+                      </div>
                     </div>
 
-                    {/* Heading */}
-                    <h3
-                      className="text-xl sm:text-2xl font-semibold text-[#0A1E3F] mb-2.5 font-heading tracking-tight"
-                      style={{ fontFamily: "var(--fonts--heading, 'Didact Gothic', sans-serif)" }}
-                    >
-                      {item.title}
-                    </h3>
-
-                    {/* Two lines description */}
-                    <p className="text-sm sm:text-base text-[#334E68] leading-relaxed font-normal">
+                    {/* Middle: Description */}
+                    <p className="text-sm sm:text-base text-[#4A5568] leading-relaxed font-normal mt-5 mb-6">
                       {item.desc}
                     </p>
+
+                    {/* 2x2 Feature Checklist Grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+                      {item.features.map((feature, fIdx) => (
+                        <div
+                          key={fIdx}
+                          className="flex items-center gap-2.5 px-3.5 py-3 rounded-xl border border-slate-200/90 bg-white text-xs sm:text-sm text-[#0A1E3F] font-medium"
+                        >
+                          <CheckCircle2 className="w-4 h-4 text-[#1E70FF] shrink-0" />
+                          <span>{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Bottom Row: CTA Button + Module Counter */}
+                    <div animate="load-hero-3" data-animate="load-hero-3" className="flex items-center justify-between pt-5 border-t border-slate-100">
+                      <Button
+                        href="/#contact" variant="primary"
+                      >
+                        <span >{item.buttonText}</span>
+                        <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      </Button>
+
+                      <span className="text-xs font-mono text-slate-400 font-medium tracking-wider">
+                        Module {item.num} of 06
+                      </span>
+                    </div>
                   </div>
                 );
               })}

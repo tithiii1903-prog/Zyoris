@@ -1,7 +1,13 @@
 import React, { useState } from "react";
+import { Button } from "../buttons/Button";
 
 export const TestimonialsSection: React.FC = () => {
-  const [videoModalOpen, setVideoModalOpen] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
 
   return (
     <>
@@ -112,64 +118,101 @@ export const TestimonialsSection: React.FC = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Video Lightbox Modal */}
-      {videoModalOpen && (
-        <div
-          className="w-lightbox-backdrop"
-          style={{ opacity: 1 }}
-          onClick={() => setVideoModalOpen(false)}
-        >
-          <div className="w-lightbox-container">
+            {/* Spacer */}
+            <div className="spacer-large"></div>
+
+            {/* Get Early Access Form */}
             <div
-              className="w-lightbox-content"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-              onClick={(e) => e.stopPropagation()}
+              id="early-access"
+              animate="fade-up-3"
+              data-animate="fade-up-3"
+              className="w-full max-w-xl mx-auto my-6 p-6 md:p-8 rounded-2xl bg-white border border-[#D5E3F7]/80 shadow-xl shadow-blue-500/5 text-center"
             >
-              <div
-                style={{
-                  position: "relative",
-                  width: "90vw",
-                  maxWidth: "940px",
-                  aspectRatio: "16/9",
-                }}
-              >
-                <iframe
-                  src="https://www.youtube.com/embed/-yXdPqm7zC0?autoplay=1"
-                  width="100%"
-                  height="100%"
-                  frameBorder="0"
-                  allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
-                  allowFullScreen
-                  title="Testimonial Video"
-                />
-              </div>
-              <button
-                type="button"
-                className="w-lightbox-control w-lightbox-close"
-                onClick={() => setVideoModalOpen(false)}
-                aria-label="Close video"
-                style={{
-                  position: "absolute",
-                  top: "20px",
-                  right: "20px",
-                  background: "transparent",
-                  border: "none",
-                  cursor: "pointer",
-                }}
-              />
+              
+              <h3 className="text-2xl md:text-3xl font-bold text-[#0A1E3F] tracking-tight mb-2">
+                Get Early Access
+              </h3>
+              <p className="text-sm md:text-base text-[#52667D] leading-relaxed mb-6 max-w-md mx-auto font-normal">
+                We&apos;re onboarding our first companies. Join the waitlist and be first to run your business on Zyoris.
+              </p>
+
+              {submitted ? (
+                <div className="p-6 rounded-xl bg-[#F0F5FF] border border-[#D4E2F5] text-center">
+                  <h4 className="text-lg font-bold text-[#0A1E3F] mb-1">Thank you for joining!</h4>
+                  <p className="text-sm text-[#52667D]">
+                    We&apos;ve received your details. Our team will reach out with your early access invite shortly.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4 text-left">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs uppercase tracking-wider text-[#0A1E3F]/70 mb-1.5 font-semibold">
+                        Your full name *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="Your full name *"
+                        className="w-full px-3.5 py-2.5 rounded-lg bg-[#F8FAFC] border border-[#D5E3F7] text-[#0A1E3F] placeholder-[#52667D]/60 focus:outline-none focus:border-[#2979FF] focus:bg-white focus:ring-2 focus:ring-[#2979FF]/20 text-sm transition-all"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs uppercase tracking-wider text-[#0A1E3F]/70 mb-1.5 font-semibold">
+                        Company name *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="Company name *"
+                        className="w-full px-3.5 py-2.5 rounded-lg bg-[#F8FAFC] border border-[#D5E3F7] text-[#0A1E3F] placeholder-[#52667D]/60 focus:outline-none focus:border-[#2979FF] focus:bg-white focus:ring-2 focus:ring-[#2979FF]/20 text-sm transition-all"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs uppercase tracking-wider text-[#0A1E3F]/70 mb-1.5 font-semibold">
+                        Work email *
+                      </label>
+                      <input
+                        type="email"
+                        required
+                        placeholder="Work email *"
+                        className="w-full px-3.5 py-2.5 rounded-lg bg-[#F8FAFC] border border-[#D5E3F7] text-[#0A1E3F] placeholder-[#52667D]/60 focus:outline-none focus:border-[#2979FF] focus:bg-white focus:ring-2 focus:ring-[#2979FF]/20 text-sm transition-all"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs uppercase tracking-wider text-[#0A1E3F]/70 mb-1.5 font-semibold">
+                        Phone number *
+                      </label>
+                      <input
+                        type="tel"
+                        required
+                        placeholder="Phone number *"
+                        className="w-full px-3.5 py-2.5 rounded-lg bg-[#F8FAFC] border border-[#D5E3F7] text-[#0A1E3F] placeholder-[#52667D]/60 focus:outline-none focus:border-[#2979FF] focus:bg-white focus:ring-2 focus:ring-[#2979FF]/20 text-sm transition-all"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="pt-2">
+                    <Button
+                      type="submit"
+                      variant="primary"
+                      className="w-full py-3 text-center font-semibold text-sm md:text-base"
+                    >
+                      Request Early Access
+                    </Button>
+                  </div>
+
+                  
+                </form>
+              )}
             </div>
           </div>
         </div>
-      )}
-
+      </section>
       <div className="divider"></div>
     </>
   );

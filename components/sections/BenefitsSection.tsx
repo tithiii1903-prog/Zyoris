@@ -36,148 +36,61 @@ export const BenefitsSection: React.FC = () => {
 
           <div className="spacer-medium"></div>
 
-          {/* Benefits Grid with card stagger */}
+          {/* 3 Step Cards Grid */}
           <div
             animate="card-stagger"
             data-animate="card-stagger"
-            className="home1_benefits_list"
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-12 text-left"
           >
-            {/* Step 1 */}
-            <div className="benefits_item">
-              <div className="benefits_item-img-wrap">
-                <img
-                  src="https://cdn.prod.website-files.com/69b13cad49372c03e40843d9/69de86ef9ab0f04ba18d520d_Benefits1.avif"
-                  loading="lazy"
-                  alt="Your team enters data"
-                  className="benefits_item-img"
-                />
-              </div>
-              <div className="benefits_item-text-wrap">
-                <div className="benefits_item-text">
-                  <div className="text-size-small text-weight-normal">
-                    01. Your team enters data
-                  </div>
-                  <div className="text-size-small text-weight-normal text-style-muted">
-                    Sales logs leads, HR manages people, Finance tracks invoices
-                  </div>
+            {/* Item 1 */}
+            <div className="deploya-card p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-blue-500/10 hover:border-[#2979FF] border border-[#D5E3F7]/80 rounded-2xl bg-white cursor-pointer group">
+              <div>
+                <div className="text-xs text-blue-500 font-semibold uppercase tracking-wider mb-2 group-hover:text-[#2979FF] transition-colors">
+                  01
                 </div>
+                <h3 className="text-xl font-bold text-[var(--text-main)] mb-2 tracking-tight">
+                  Your team enters data
+                </h3>
+                <p className="text-xs text-[var(--text-muted)] leading-relaxed font-normal">
+                  Sales logs leads, HR manages people, Finance tracks invoices. All in one platform, with no duplication and no back-and-forth.
+                </p>
               </div>
             </div>
 
-            {/* Step 2 */}
-            <div className="benefits_item">
-              <div className="benefits_item-img-wrap">
-                <img
-                  src="https://cdn.prod.website-files.com/69b13cad49372c03e40843d9/69de86ef6077db79fa0ac633_Benefits2.avif"
-                  loading="lazy"
-                  alt="Zyoris connects the dots"
-                  className="benefits_item-img"
-                />
-              </div>
-              <div className="benefits_item-text-wrap">
-                <div className="benefits_item-text">
-                  <div className="text-size-small text-weight-normal">
-                    02. Zyoris connects dots
-                  </div>
-                  <div className="text-size-small text-weight-normal text-style-muted">
-                    Organises automatically, finds patterns, generates AI insights
-                  </div>
+            {/* Item 2 */}
+            <div className="deploya-card p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-blue-500/10 hover:border-[#2979FF] border border-[#D5E3F7]/80 rounded-2xl bg-white cursor-pointer group">
+              <div>
+                <div className="text-xs text-indigo-500 font-semibold uppercase tracking-wider mb-2 group-hover:text-[#2979FF] transition-colors">
+                  02
                 </div>
+                <h3 className="text-xl font-bold text-[var(--text-main)] mb-2 tracking-tight">
+                  Zyoris connects the dots
+                </h3>
+                <p className="text-xs text-[var(--text-muted)] leading-relaxed font-normal">
+                  The system organises everything automatically, finds patterns across teams, and generates AI insights without you lifting a finger.
+                </p>
               </div>
             </div>
 
-            {/* Quote Box */}
-            <div
-              id="w-node-_1d1e2bd0-a5c5-eec7-bb2b-35df95b7b745-34458c3d"
-              className="quote_box2"
-            >
-              <div className="quote_box2-cotent">
-                <img
-                  src="https://cdn.prod.website-files.com/69b13cad49372c03e40843d9/69de8ad6b99be8a74d052a40_qoute-icon.svg"
-                  loading="lazy"
-                  alt="quote icon"
-                  className="quote_box2-bg-img"
-                />
-                <div className="heading-style-h6">
-                  03. You make faster decisions — See your pipeline, team performance, and revenue forecast live. Every decision backed by real data, in real time.
+            {/* Item 3 */}
+            <div className="deploya-card p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-blue-500/10 hover:border-[#2979FF] border border-[#D5E3F7]/80 rounded-2xl bg-white cursor-pointer group">
+              <div>
+                <div className="text-xs text-indigo-500 font-semibold uppercase tracking-wider mb-2 group-hover:text-[#2979FF] transition-colors">
+                  03
                 </div>
-              </div>
-              <div className="quote_box2-author">
-                <div className="quote_box2-author-text">
-                  <div className="text-size-small text-weight-normal">
-                    Puneet Kumar
-                  </div>
-                  <div className="text-size-small text-weight-normal text-style-muted">
-                    Founder &amp; CEO, Zyoris
-                  </div>
-                </div>
-                <img
-                  src="https://cdn.prod.website-files.com/69b13cad49372c03e40843d9/69de7b26ac00db7a4605b96e_People3.avif"
-                  loading="lazy"
-                  sizes="(max-width: 2048px) 100vw, 2048px"
-                  alt="Puneet Kumar"
-                  className="quote_box2-author-img"
-                />
+                <h3 className="text-xl font-bold text-[var(--text-main)] mb-2 tracking-tight">
+                  You make faster decisions
+                </h3>
+                <p className="text-xs text-[var(--text-muted)] leading-relaxed font-normal">
+                  See your pipeline, team performance, and revenue forecast live. Every decision backed by real data, in real time.
+                </p>
               </div>
             </div>
           </div>
 
           <div className="spacer-xxsmall"></div>
 
-          {/* 4 Feature Badges with card stagger */}
-          <div
-            animate="card-stagger"
-            data-animate="card-stagger"
-            className="home1_benefits_card-list"
-          >
-            <div className="home1_benefits_card">
-              <div className="icon-wrap">
-                <img
-                  src="https://cdn.prod.website-files.com/69b13cad49372c03e40843d9/69b13cad49372c03e4084502_b1e819b5081563cf11f2358bbfec4399_Effect-filter.svg"
-                  loading="lazy"
-                  alt=""
-                  className="icon-height-medium"
-                />
-              </div>
-              <div className="text-size-small text-weight-normal">Sales &amp; CRM</div>
-            </div>
-
-            <div className="home1_benefits_card">
-              <div className="icon-wrap">
-                <img
-                  src="https://cdn.prod.website-files.com/69b13cad49372c03e40843d9/69de8d414e79b87834391767_Document-board-2.svg"
-                  loading="lazy"
-                  alt=""
-                  className="icon-height-medium"
-                />
-              </div>
-              <div className="text-size-small text-weight-normal">Finance</div>
-            </div>
-
-            <div className="home1_benefits_card">
-              <div className="icon-wrap">
-                <img
-                  src="https://cdn.prod.website-files.com/69b13cad49372c03e40843d9/69de8d4195d900694875d580_2-users-2.svg"
-                  loading="lazy"
-                  alt=""
-                  className="icon-height-medium"
-                />
-              </div>
-              <div className="text-size-small text-weight-normal">HR &amp; People</div>
-            </div>
-
-            <div className="home1_benefits_card">
-              <div className="icon-wrap">
-                <img
-                  src="https://cdn.prod.website-files.com/69b13cad49372c03e40843d9/69de8d41921ac402d300c675_Docuemnt-2-lines.svg"
-                  loading="lazy"
-                  alt=""
-                  className="icon-height-medium"
-                />
-              </div>
-              <div className="text-size-small text-weight-normal">AI Insights</div>
-            </div>
-          </div>
+          
         </div>
       </div>
     </section>

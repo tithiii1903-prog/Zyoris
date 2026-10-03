@@ -18,6 +18,7 @@ export const BannerCTASection: React.FC = () => {
 
   return (
     <section className="section_home1_banner">
+      
       <div className="background-video w-background-video w-background-video-atom">
         <video
           ref={videoRef}
@@ -41,6 +42,7 @@ export const BannerCTASection: React.FC = () => {
             type="video/webm"
           />
         </video>
+        
         <div aria-live="polite">
           <button
             type="button"
@@ -85,7 +87,7 @@ export const BannerCTASection: React.FC = () => {
                 data-animate="fade-up-1"
                 className="text-style-badge is-badge"
               >
-                <div>Get Early Access</div>
+                <div>Get in Touch</div>
               </div>
               <div className="spacer-xsmall"></div>
               <h2 animate="title" data-animate="title">
@@ -98,8 +100,7 @@ export const BannerCTASection: React.FC = () => {
                   data-animate="fade-up-2"
                   className="text-size-medium"
                 >
-                  We&apos;re onboarding our first companies. Join the waitlist and be first to run your business on Zyoris. Early customers lock in their rates permanently.
-                </div>
+                 Tell us about your business and we'll get back to you personally. No spam, no automated responses — just a real conversation about how Zyoris can work for you.</div>
               </div>
             </div>
 
@@ -178,7 +179,7 @@ export const BannerCTASection: React.FC = () => {
                 </div>
 
                 <Button variant="primary" className="w-full py-3 text-center font-medium">
-                  Request Early Access →
+                  Send my details →
                 </Button>
 
                 <div className="text-center text-xs text-white/60 pt-2">

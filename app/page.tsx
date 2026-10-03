@@ -31,15 +31,13 @@ export default function HomePage() {
       <Navbar />
       <main className="main-wrapper">
         <HeroSection />
-        
         <FeaturesSection />
         <BenefitsSection />
-        <ShowcaseSection />
-        <TestimonialsSection />
-        <IntegrationsSection />
         <PricingSection />
-        <BlogSection />
+        <ShowcaseSection />
+        <IntegrationsSection />
         <FAQSection />
+        <TestimonialsSection />
         <BannerCTASection />
       </main>
       <Footer />
