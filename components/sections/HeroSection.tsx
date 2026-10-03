@@ -126,7 +126,7 @@ export const HeroSection: React.FC = () => {
 
             {/* Button Group */}
             <div animate="load-hero-3" data-animate="load-hero-3" className="button-group align-center">
-              <Button href="/#contact" variant="primary">
+              <Button href="/#early-access" variant="primary">
                 Request Early Access →
               </Button>
               <Button href="/#features" variant="secondary">

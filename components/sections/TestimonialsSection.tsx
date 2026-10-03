@@ -127,6 +127,7 @@ export const TestimonialsSection: React.FC = () => {
               id="early-access"
               animate="fade-up-3"
               data-animate="fade-up-3"
+              
               className="w-full max-w-xl mx-auto my-6 p-6 md:p-8 rounded-2xl bg-white border border-[#D5E3F7]/80 shadow-xl shadow-blue-500/5 text-center"
             >
               

@@ -71,7 +71,7 @@ export const Navbar: React.FC = () => {
               <div className="nav-info-dropdown w-dropdown">
                 <div className="nav-info-dropdown-toggle w-dropdown-toggle">
                   <Button
-                    href="/#contact"
+                    href="/#early-access"
                     variant="primary"
                   >
                     Get Early Access
